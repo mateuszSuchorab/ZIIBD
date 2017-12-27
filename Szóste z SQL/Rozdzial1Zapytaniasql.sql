@@ -1,0 +1,11 @@
+GRANT UPDATE ON departments TO scott WITH GRANT OPTION;
+GRANT select ON regions TO <team2_oraxx> WITH GRANT OPTION;
+GRANT select, update, insert ON COUNTRIES TO <team2_oraxx>;
+REVOKE select, update, insert ON COUNTRIES FROM <team2_oraxx>;
+GRANT select ON departments TO <team2_oraxx>;
+SELECT * FROM departments;
+INSERT INTO departments(department_id, department_name) VALUES (500, 'Education'); COMMIT;
+CREATE SYNONYM team2 FOR <team2_oraxx>.DEPARTMENTS;
+SELECT * FROM team2;
+REVOKE select ON departments FROM <team2_oraxx> ;
+DELETE FROM departments WHERE department_id = 500; COMMIT;
